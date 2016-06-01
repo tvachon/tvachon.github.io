@@ -1,4 +1,4 @@
-#Based on Code Guide by Mark Otto, modified for OnCourse by Todd Vachon
+#Based on Code Guide by Mark Otto, modified by Todd Vachon
 
 ------------------------------------------------------------------------
 

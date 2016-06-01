@@ -4,20 +4,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-  <link href="public/ico/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
   <title>
-    OnCourse Code Guide
+    Code Guide
   </title>
 
 <link rel="stylesheet" href="code-guide.css">
-  <link rel="stylesheet" href="_includes/syntax.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Mono&subset=latin,cyrillic">
-  <link href="google-code-prettify/desert.css" type="text/css" rel="stylesheet" />
-  <script src="google-code-prettify/prettify.js"></script>
+    <link href="prism/prism.css" rel="stylesheet" />
 </head>
-<body onload="prettyPrint()"> <!--https://github.com/google/code-prettify-->
-
+<body>
+<script src="prism/prism.js"></script>
 <header class="masthead">
   <div class="container">
     <span class="icon">&#9997;</span>
@@ -38,18 +35,9 @@
 </div>
 <div class="section toc">
   <div class="col">
-    <h4><a href="#html">HTML</a></h4>
+    <h4><a href="#html">General</a></h4>
     <ul>
-      <li><a href="#html-syntax">Syntax</a></li>
-      <li><a href="#html-doctype">HTML5 doctype</a></li>
-      <li><a href="#html-lang">Language attribute</a></li>
-      <li><a href="#html-encoding">Character encoding</a></li>
-      <li><a href="#html-ie-compatibility-mode">Internet Explorer compatibility mode</a></li>
-      <li><a href="#html-style-script">CSS and JavaScript includes</a></li>
       <li><a href="#html-practicality">Practicality over purity</a></li>
-      <li><a href="#html-attribute-order">Attribute order</a></li>
-      <li><a href="#html-boolean-attributes">Boolean attributes</a></li>
-      <li><a href="#html-reducing-markup">Reducing markup</a></li>
       <li><a href="#html-javascript">JavaScript generated markup</a></li>
     </ul>
   </div>
@@ -74,155 +62,11 @@
 </div>
 
 
-<div class="section" id="golden-rule">
-  <div class="col">
-    <h2>Golden rule</h2>
-    <p>Enforce these, or your own, agreed upon guidelines at all times. Small or large, call out what's incorrect. For additions or contributions to this Code Guide, please <a href="https://github.com/mdo/code-guide/issues/new">open an issue on GitHub</a>.</p>
-  </div>
-  <div class="col">
-    <blockquote>
-      <p>Every line of code should appear to be written by a single person, no matter the number of contributors.</p>
-    </blockquote>
-  </div>
-</div>
-
-
-
-<div class="heading" id="html">
-  <h2>HTML</h2>
-</div>
-
-<div class="section" id="html-syntax">
-  <div class="col">
-    <h3>Syntax</h3>
-    <ul>
-      <li>Use soft tabs with two spaces—they're the only way to guarantee code renders the same in any environment.</li>
-      <li>Nested elements should be indented once (two spaces).</li>
-      <li>Always use double quotes, never single quotes, on attributes.</li>
-      <li>Don't include a trailing slash in self-closing elements—the <a href="http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag">HTML5 spec</a> says they're optional.</li>
-      <li>Don’t omit optional closing tags (e.g. <code>&lt;/li&gt;</code> or <code>&lt;/body&gt;</code>).</li>
-    </ul>
-  </div>
-  <div class="col">
-    <pre class="prettyprint">{% include html/syntax.html %}</pre>
-  </div>
-</div>
-
-<div class="section" id="html-doctype">
-  <div class="col">
-    <h3>HTML5 doctype</h3>
-    <p>Enforce standards mode and more consistent rendering in every browser possible with this simple doctype at the beginning of every HTML page.</p>
-  </div>
-  <div class="col">
-    <pre class="prettyprint">{% include html/doctype.html %}</pre>
-  </div>
-</div>
-
-<div class="section" id="html-lang">
-  <div class="col">
-    <h3>Language attribute</h3>
-    <p>From the HTML5 spec:</p>
-    <blockquote>
-      <p>Authors are encouraged to specify a lang attribute on the root html element, giving the document's language. This aids speech synthesis tools to determine what pronunciations to use, translation tools to determine what rules to use, and so forth.</p>
-    </blockquote>
-    <p>Read more about the <code>lang</code> attribute <a href="http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-html-element">in the spec</a>.</p>
-    <p>Head to Sitepoint for a <a href="http://reference.sitepoint.com/html/lang-codes">list of language codes</a>.</p>
-  </div>
-  <div class="col">
-    <pre class="prettyprint">{% include html/lang.html %}</pre>
-  </div>
-</div>
-
-<div class="section" id="html-ie-compatibility-mode">
-  <div class="col">
-    <h3>IE compatibility mode</h3>
-    <p>Internet Explorer supports the use of a document compatibility <code>&lt;meta&gt;</code> tag to specify what version of IE the page should be rendered as. Unless circumstances require otherwise, it's most useful to instruct IE to use the latest supported mode with <strong>edge mode</strong>.</p>
-    <p>For more information, <a href="http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge-e">read this awesome Stack Overflow article</a>.</p>
-  </div>
-  <div class="col">
-    <pre class="prettyprint">{% include html/ie-compatibility-mode.html %}</pre>
-  </div>
-</div>
-
-<div class="section" id="html-encoding">
-  <div class="col">
-    <h3>Character encoding</h3>
-    <p>Quickly and easily ensure proper rendering of your content by declaring an explicit character encoding. When doing so, you may avoid using character entities in your HTML, provided their encoding matches that of the document (generally UTF-8).</p>
-  </div>
-  <div class="col">
-    <pre class="prettyprint">{% include html/encoding.html %}</pre>
-  </div>
-</div>
-
-<div class="section" id="html-style-script">
-  <div class="col">
-    <h3>CSS and JavaScript includes</h3>
-    <p>Per HTML5 spec, typically there is no need to specify a <code>type</code> when including CSS and JavaScript files as <code>text/css</code> and <code>text/javascript</code> are their respective defaults.</p>
-    <h4>HTML5 spec links</h4>
-    <ul>
-      <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element">Using link</a></li>
-      <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-style-element">Using style</a></li>
-      <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/scripting-1.html#the-script-element">Using script</a></li>
-    </ul>
-  </div>
-  <div class="col">
-    <pre class="prettyprint">{% include html/style-script.html %}</pre>
-  </div>
-</div>
-
 <div class="section" id="html-practicality">
-  <div class="col">
-    <h3>Practicality over purity</h3>
-    <p>Strive to maintain HTML standards and semantics, but not at the expense of practicality. Use the least amount of markup with the fewest intricacies whenever possible.</p>
-  </div>
-</div>
-
-<div class="section" id="html-attribute-order">
-  <div class="col">
-    <h3>Attribute order</h3>
-    <p>HTML attributes should come in this particular order for easier reading of code.</p>
-    <ul>
-      <li><code>class</code></li>
-      <li><code>id</code>, <code>name</code></li>
-      <li><code>data-*</code></li>
-      <li><code>src</code>, <code>for</code>, <code>type</code>, <code>href</code>, <code>value</code></li>
-      <li><code>title</code>, <code>alt</code></li>
-      <li><code>role</code>, <code>aria-*</code></li>
-    </ul>
-    <p>Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks), so they come second.</p>
-  </div>
-  <div class="col">
-    <pre class="prettyprint">{% include html/attribute-order.html %}</pre>
-  </div>
-</div>
-
-<div class="section" id="html-boolean-attributes">
-  <div class="col">
-    <h3>Boolean attributes</h3>
-    <p>A boolean attribute is one that needs no declared value. XHTML required you to declare a value, but HTML5 has no such requirement.</p>
-    <p>For further reading, consult the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#boolean-attributes">WhatWG section on boolean attributes</a>:</p>
-    <blockquote>
-      <p>The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.</p>
-    </blockquote>
-    <p>If you <em>must</em> include the attribute's value, and <strong>you don't need to</strong>, follow this WhatWG guideline:</p>
-    <blockquote>
-      <p>If the attribute is present, its value must either be the empty string or [...] the attribute's canonical name, with no leading or trailing whitespace.</p>
-    </blockquote>
-    <p><strong>In short, don't add a value.</strong></p>
-  </div>
-  <div class="col">
-    <pre class="prettyprint">{% include html/boolean-attributes.html %}</pre>
-  </div>
-</div>
-
-<div class="section" id="html-reducing-markup">
-  <div class="col">
-    <h3>Reducing markup</h3>
-    <p>Whenever possible, avoid superfluous parent elements when writing HTML. Many times this requires iteration and refactoring, but produces less HTML. Take the following example:</p>
-  </div>
-  <div class="col">
-    <pre class="prettyprint">{% include html/reducing-markup.html %}</pre>
-  </div>
+    <div class="col">
+        <h3>Practicality over purity</h3>
+        <p>Strive to maintain HTML standards and semantics, but not at the expense of practicality. Use the least amount of markup with the fewest intricacies whenever possible. Don't let the perfect be the enemy of the good. </p>
+    </div>
 </div>
 
 <div class="section" id="html-javascript">
@@ -260,7 +104,7 @@
     <p>Questions on the terms used here? See the <a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets#Syntax">syntax section of the Cascading Style Sheets article</a> on Wikipedia.</p>
   </div>
   <div class="col">
-    <pre class="prettyprint">
+    <pre><code class="language-css">
         /* Bad CSS */
         .selector, .selector-secondary, .selector[type=text] {
           padding:15px;
@@ -278,7 +122,7 @@
           background-color: rgba(0,0,0,.5);
           box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
         }
-    </pre>
+    </code></pre>
   </div>
 </div>
 
@@ -297,7 +141,7 @@
     <p>For a complete list of properties and their order, please see <a href="http://twitter.github.com/recess">Recess</a>.</p>
   </div>
   <div class="col">
-    <pre class="prettyprint lang-css">
+    <pre><code class="language-css">
         .declaration-order {
           /* Positioning */
           position: absolute;
@@ -327,7 +171,7 @@
           /* Misc */
           opacity: 1;
         }
-    </pre>
+    </code></pre>
   </div>
 </div>
 
@@ -343,7 +187,7 @@
     <p>For more information, <a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/">read this article by Steve Souders</a>.</p>
   </div>
   <div class="col">
-    <pre class="prettyprint">
+    <pre><code class="language-html">
         /* Use link elements */
         &lt;link rel="stylesheet" href="core.css"&gt;
 
@@ -351,7 +195,7 @@
         &lt;style&gt;
             @import url("more.css");
         &lt;/style&gt;
-    </pre>
+    </code></pre>
   </div>
 </div>
 
@@ -361,7 +205,7 @@
     <p>Place media queries as close to their relevant rule sets whenever possible. Don't bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future. Here's a typical setup.</p>
   </div>
   <div class="col">
-    <pre class="prettyprint">
+    <pre><code class="language-css">
         .element { ... }
         .element-avatar { ... }
         .element-selected { ... }
@@ -371,7 +215,7 @@
           .element-avatar { ... }
           .element-selected { ... }
         }
-    </pre>
+    </code></pre>
   </div>
 </div>
 
@@ -382,14 +226,14 @@
     <p>In Textmate, use <strong>Text &rarr; Edit Each Line in Selection</strong> (&#8963;&#8984;A). In Sublime Text 2, use <strong>Selection &rarr; Add Previous Line</strong> (&#8963;&#8679;&uarr;) and <strong>Selection &rarr;  Add Next Line</strong> (&#8963;&#8679;&darr;).</p>
   </div>
   <div class="col">
-    <pre class="prettyprint">
+    <pre><code class="language-css">
         /* Prefixed properties */
         .selector {
           -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
                   box-shadow: 0 1px 2px rgba(0,0,0,.15);
         }
 
-    </pre>
+    </code></pre>
   </div>
 </div>
 
@@ -400,7 +244,7 @@
     <p>The key factor here is error detection—e.g., a CSS validator stating you have a syntax error on Line 183. With a single declaration, there's no missing it. With multiple declarations, separate lines is a must for your sanity.</p>
   </div>
   <div class="col">
-    <pre class="prettyprint">
+    <pre><code class="language-css">
         /* Single declarations on one line */
         .span1 { width: 60px; }
         .span2 { width: 140px; }
@@ -416,7 +260,7 @@
         .icon           { background-position: 0 0; }
         .icon-home      { background-position: 0 -20px; }
         .icon-account   { background-position: 0 -40px; }
-    </pre>
+    </code></pre>
   </div>
 </div>
 
@@ -436,7 +280,7 @@
     <p>The Mozilla Developer Network has a great article on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand properties</a> for those unfamiliar with notation and behavior.</p>
   </div>
   <div class="col">
-    <pre class="prettyprint">
+    <pre><code class="language-css">
         /* Bad example */
         .element {
           margin: 0 0 10px;
@@ -453,7 +297,7 @@
           border-top-left-radius: 3px;
           border-top-right-radius: 3px;
 }
-    </pre>
+    </code></pre>
   </div>
 </div>
 
@@ -467,7 +311,7 @@
     </ul>
   </div>
   <div class="col">
-    <pre class="prettyprint">
+    <pre><code class="language-css">
       // Without nesting
       .table > thead > tr > th { … }
       .table > thead > tr > td { … }
@@ -477,7 +321,7 @@
         > th { … }
         > td { … }
       }
-    </pre>
+    </code></pre>
   </div>
 </div>
 
@@ -487,7 +331,7 @@
     <p>For improved readability, wrap all math operations in parentheses with a single space between values, variables, and operators.</p>
   </div>
   <div class="col">
-    <pre class="prettyprint">
+    <pre><code class="language-css">
       // Bad example
       .element {
         margin: 10px 0 @variable*2 10px;
@@ -497,7 +341,7 @@
       .element {
         margin: 10px 0 (@variable * 2) 10px;
       }
-    </pre>
+    </code></pre>
   </div>
 </div>
 
@@ -508,7 +352,7 @@
     <p>Be sure to write in complete sentences for larger comments and succinct phrases for general notes.</p>
   </div>
   <div class="col">
-    <pre class="prettyprint">
+    <pre><code class="language-css">
       /* Bad example */
       /* Modal header */
       .modal-header {
@@ -520,7 +364,7 @@
       .modal-header {
         ...
       }
-    </pre>
+    </code></pre>
   </div>
 </div>
 
@@ -538,7 +382,7 @@
     <p>It's also useful to apply many of these same rules when creating Sass and Less variable names.</p>
   </div>
   <div class="col">
-    <pre class="prettyprint">
+    <pre><code class="language-css">
       /* Bad example */
       .t { ... }
       .red { ... }
@@ -548,7 +392,7 @@
       .tweet { ... }
       .important { ... }
       .tweet-header { ... }
-      </pre>
+      </code></pre>
   </div>
 </div>
 
@@ -568,7 +412,7 @@
     </ul>
   </div>
   <div class="col">
-    <pre class="prettyprint">
+    <pre><code class="language-css">
       /* Bad example */
       span { ... }
       .page-container #stream .stream-item .tweet .tweet-header .username { ... }
@@ -579,7 +423,7 @@
       .tweet-header .username { ... }
       .tweet .avatar { ... }
 
-      </pre>
+      </code></pre>
   </div>
 </div>
 
@@ -594,7 +438,8 @@
     </ul>
   </div>
   <div class="col">
-    <pre class="prettyprint">
+    <pre>
+        <code class="language-css">
       /*
       * Component section heading
       */
@@ -613,6 +458,7 @@
 
       /* Contextual sub-component or modifer */
       .element-heading { ... }
+            </code>
       </pre>
   </div>
 </div>
@@ -632,18 +478,8 @@
 </div>
 
 <footer class="footer">
-  <p>&lt;3</p>
-  <p>Heavily inspired by <a href="https://github.com/necolas/idiomatic-css">Idiomatic CSS</a> and the <a href="http://github.com/styleguide">GitHub Styleguide</a>. Made with all the love in the world by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-  <p>Open sourced under MIT. Copyright {{ site.time | date: '%Y' }} <a href="https://twitter.com/mdo">@mdo</a>.</p>
 
-  <ul class="quick-links">
-    <li>
-      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=mdo&repo=code-guide&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
-    </li>
-    <li>
-      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=mdo&repo=code-guide&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
-    </li>
-  </ul>
+  <p>Originally modified from Code Guide by <a href="https://twitter.com/mdo">@mdo</a>, which was heavily inspired by <a href="https://github.com/necolas/idiomatic-css">Idiomatic CSS</a> and the <a href="http://github.com/styleguide">GitHub Styleguide</a>. Open sourced under MIT. Google Code-Prettify is distributed under the Apache 2.0 license.</p>
 
   </ul>
 </footer>

@@ -1,6 +1,8 @@
-#Based on Code Guide by Mark Otto, modified for OnCourse by Todd Vachon
+#Based on Code Guide by Mark Otto, modified by Todd Vachon
 
-Google Code-prettify (https://github.com/google/code-prettify) is distributed under the Apache license 2.0: http://www.apache.org/licenses/LICENSE-2.0
+Prism: Lightweight, robust, elegant syntax highlighting
+MIT license http://www.opensource.org/licenses/mit-license.php/
+@author Lea Verou http://lea.verou.me
 
 
 Code Guide (http://mdo.github.io/code-guide) is Copyright (c) 2014 Mark Otto, distributed under The MIT License (MIT):
