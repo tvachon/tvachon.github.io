@@ -333,11 +333,11 @@
   </div>
   <div class="col">
     <pre><code class="language-css">
-      // Without nesting
+      /* Without nesting */
       .table > thead > tr > th { … }
       .table > thead > tr > td { … }
 
-      // With nesting
+      /* With nesting */
       .table > thead > tr {
         > th { … }
         > td { … }
@@ -357,14 +357,14 @@
   </div>
   <div class="col">
     <pre><code class="language-css">
-      // Bad example
+      /* Bad example */
       .element {
         margin: 10px 0 @variable*2 10px;
         @extend .other-rule;
         @include clearfix();
       }
 
-      // Good example
+      /* Good example */
       .element {
         @extend .other-rule;
         @include clearfix();
