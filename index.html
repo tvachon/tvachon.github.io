@@ -22,7 +22,7 @@
     <p class="lead">Standards for developing flexible, durable, and sustainable HTML and CSS.</p>
 
     <p class="masthead-links">
-      <a href="https://github.com/mdo/code-guide">
+      <a href="https://github.com/tvachon/Code_Guide">
         <span class="icon icon-github-circled"></span>
       </a>
     </p>
@@ -35,7 +35,7 @@
 </div>
 <div class="section toc">
   <div class="col">
-    <h4><a href="#html">General</a></h4>
+    <h4><a href="#html">General Principles</a></h4>
     <ul>
       <li><a href="#html-practicality">Practicality over purity</a></li>
       <li><a href="#html-javascript">JavaScript generated markup</a></li>
@@ -86,11 +86,14 @@
   <div class="col">
     <h3>Syntax</h3>
     <ul>
-      <li>Use soft tabs with two spaces—they're the only way to guarantee code renders the same in any environment.</li>
-      <li>When grouping selectors, keep individual selectors to a single line.</li>
+      <li>Use soft tabs with four spaces—they're the only way to guarantee code renders the same in any environment.</li>
+      <li>When using multiple selectors, keep individual selectors to a single line.</li>
+      <li>Use classes over id's. </li>
       <li>Include one space before the opening brace of declaration blocks for legibility.</li>
-      <li>Place closing braces of declaration blocks on a new line.</li>
-      <li>Include one space after <code>:</code> for each declaration.</li>
+      <li>Place closing braces of declaration blocks on a new line, in the same column as the first character of the ruleset.</li>
+      <li>Separate each ruleset by a blank line.</li>
+      <li>Include one space after the<code>:</code> for each declaration.</li>
+      <li>Use single or double quotes consistently. Preference is for double quotes, e.g., content: ""</li>
       <li>Each declaration should appear on its own line for more accurate error reporting.</li>
       <li>End all declarations with a semi-colon. The last declaration's is optional, but your code is more error prone without it.</li>
       <li>Comma-separated property values should include a space after each comma (e.g., <code>box-shadow</code>).</li>
@@ -98,8 +101,12 @@
       <li>Don't prefix property values or color parameters with a leading zero (e.g., <code>.5</code> instead of <code>0.5</code> and <code>-.5px</code> instead of <code>-0.5px</code>).</li>
       <li>Lowercase all hex values, e.g., <code>#fff</code>. Lowercase letters are much easier to discern when scanning a document as they tend to have more unique shapes.</li>
       <li>Use shorthand hex values where available, e.g., <code>#fff</code> instead of <code>#ffffff</code>.</li>
+      <li>Use variables for colors where available instead of a hardcoded color.</li>
       <li>Quote attribute values in selectors, e.g., <code>input[type="text"]</code>. <a href="http://mathiasbynens.be/notes/unquoted-attribute-values#css">They’re only optional in some cases</a>, and it’s a good practice for consistency.</li>
-      <li>Avoid specifying units for zero values, e.g., <code>margin: 0;</code> instead of <code>margin: 0px;</code>.</li>
+      <li>Avoid specifying units for zero values, e.g., use <code>margin: 0;</code> instead of <code>margin: 0px;</code>.</li>
+        <li>Long, comma-separated property values - such as collections of gradients or shadows - can be arranged across multiple lines in an effort to improve readability and produce more useful diffs. See example.
+
+        </li>
     </ul>
     <p>Questions on the terms used here? See the <a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets#Syntax">syntax section of the Cascading Style Sheets article</a> on Wikipedia.</p>
   </div>
@@ -122,6 +129,16 @@
           background-color: rgba(0,0,0,.5);
           box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
         }
+
+        /* selector with long, comma separated property values */
+        .selector {
+    background-image:
+        linear-gradient(#fff, #ccc),
+        linear-gradient(#f3c, #4ec);
+    box-shadow:
+        1px 1px 1px #000,
+        2px 2px 1px 1px #ccc inset;
+}
     </code></pre>
   </div>
 </div>
@@ -305,9 +322,9 @@
   <div class="col">
     <h3>Nesting in Less and Sass</h3>
     <p>Avoid unnecessary nesting. Just because you can nest, doesn't mean you always should. Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.</p>
-    <p>Additional reading:</p>
     <ul>
-      <li><a href="http://markdotto.com/2015/07/20/css-nesting/">Nesting in Sass and Less</a></li>
+        <li>Use the Inception rule: never nest more than three levels deep.</li>
+      <li>Additional reading:<a href="http://markdotto.com/2015/07/20/css-nesting/">Nesting in Sass and Less</a></li>
     </ul>
   </div>
   <div class="col">
@@ -328,17 +345,25 @@
 <div class="section" id="css-operators">
   <div class="col">
     <h3>Operators in Less and Sass</h3>
-    <p>For improved readability, wrap all math operations in parentheses with a single space between values, variables, and operators.</p>
+      <ul>
+          <li>Always place @extend statements on the first lines of a declaration block.</li>
+          <li>Where possible, group @include statements at the top of a declaration block, after any @extend statements</a></li>
+          <li>For improved readability, wrap all math operations in parentheses with a single space between values, variables, and operators.</li>
+      </ul>
   </div>
   <div class="col">
     <pre><code class="language-css">
       // Bad example
       .element {
         margin: 10px 0 @variable*2 10px;
+        @extend .other-rule;
+        @include clearfix();
       }
 
       // Good example
       .element {
+        @extend .other-rule;
+        @include clearfix();
         margin: 10px 0 (@variable * 2) 10px;
       }
     </code></pre>
@@ -348,8 +373,13 @@
 <div class="section" id="css-comments">
   <div class="col">
     <h3>Comments</h3>
-    <p>Code is written and maintained by people. Ensure your code is descriptive, well commented, and approachable by others. Great code comments convey context or purpose. Do not simply reiterate a component or class name.</p>
-    <p>Be sure to write in complete sentences for larger comments and succinct phrases for general notes.</p>
+    <p>Well commented code is extremely important. Take time to describe components, how they work, their limitations, and the way they are constructed. Don't leave others in the team guessing as to the purpose of uncommon or non-obvious code. Do not simply reiterate a component or class name.</p>
+      <ul>
+          <li>Write in complete sentences for larger comments and succinct phrases for general notes.</li>
+          <li>Place comments on a new line above their subject.</li>
+          <li>Use of comments to break CSS code into discrete sections.</li>
+          <li>Use "sentence case" comments and consistent text indentation.</li>
+      </ul>
   </div>
   <div class="col">
     <pre><code class="language-css">
@@ -433,7 +463,7 @@
     <ul>
       <li>Organize sections of code by component.</li>
       <li>Develop a consistent commenting hierarchy.</li>
-      <li>Use consistent white space to your advantage when separating sections of code for scanning larger documents.</li>
+      <li>Use white space to improve readability, separating sections of code for scanning larger documents. Use one blank line to separate classes, no blank lines are necessary for nested styles.</li>
       <li>When using multiple CSS files, break them down by component instead of page. Pages can be rearranged and components moved.</li>
     </ul>
   </div>
@@ -468,10 +498,11 @@
     <h3>Editor preferences</h3>
     <p>Set your editor to the following settings to avoid common code inconsistencies and dirty diffs:</p>
     <ul>
-      <li>Use soft-tabs set to two spaces.</li>
+      <li>Use soft-tabs set to four spaces. Never mix tabs and spaces.</li>
       <li>Trim trailing white space on save.</li>
       <li>Set encoding to UTF-8.</li>
       <li>Add new line at end of files.</li>
+        <li>Configure your editor to provide you with shortcuts to output agreed-upon comment patterns.</li>
     </ul>
     <p>Consider documenting and applying these preferences to your project's <code>.editorconfig</code> file. For an example, see <a href="https://github.com/twbs/bootstrap/blob/master/.editorconfig">the one in Bootstrap</a>. Learn more <a href="http://editorconfig.org">about EditorConfig</a>.</p>
   </div>
