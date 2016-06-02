@@ -1,18 +1,16 @@
-#Based on Code Guide by Mark Otto, modified by Todd Vachon
-
-------------------------------------------------------------------------
-
 # Code Guide
 
-Code Guide is a project for documenting standards for developing flexible, durable, and sustainable HTML and CSS. It comes from years of experience writing code on projects of all sizes. It's not the end-all be-all, but it's a start.
+This Code Guide started off as as a copy of the excellent Code Guide by Mark Otto, but has been modified to suit my own purposes as a starting point for coding standards.
 
-**[Start reading ☞](http://mdo.github.io/code-guide)**
+Code Guide is a project for documenting standards for developing flexible, durable, and sustainable HTML and CSS.
+
+**[More information on Mark Otto's version ☞](http://mdo.github.io/code-guide)**
 
 ---
 
 ### License
 
-Released under MIT by, and copyright 2014, @mdo.
+The original Code Guide was released under MIT by, and copyright 2014, @mdo.
 
 ### Thanks
 
