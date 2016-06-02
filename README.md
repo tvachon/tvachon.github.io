@@ -10,7 +10,16 @@ Code Guide is a project for documenting standards for developing flexible, durab
 
 ---
 
+### To Do
+
+Fix tab spacing in code examples once we settle on a standard
+Add SassyCss, BEM, or ITCSS conventions?
+
+
+---
+
 ### License
+
 
 The original Code Guide was released under MIT by, and copyright 2014, @mdo.
 
