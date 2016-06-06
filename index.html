@@ -94,7 +94,7 @@
     <div class="col">
         <h3>CSS Whitespace</h3>
         <ul>
-            <li>Use soft <strong>tabs with two spaces</strong> — they're the only way to guarantee code renders the same
+            <li>Use soft <strong>tabs with four spaces</strong> — they're the only way to guarantee code renders the same
                 in any
                 environment.
             </li>
@@ -124,20 +124,20 @@
     <pre><code class="language-css">
         /* Bad CSS */
         .selector, .selector-secondary, .selector[type=text] {
-          padding:15px;
-          margin:0px 0px 15px;
-          background-color:rgba(0, 0, 0, 0.5);
-          box-shadow:0px 1px 2px #CCC,inset 0 1px 0 #FFFFFF
+            padding:15px;
+            margin:0px 0px 15px;
+            background-color:rgba(0, 0, 0, 0.5);
+            box-shadow:0px 1px 2px #CCC,inset 0 1px 0 #FFFFFF
         }
 
         /* Good CSS */
         .selector,
         .selector-secondary,
         .selector[type="text"] {
-          padding: 15px;
-          margin-bottom: 15px;
-          background-color: rgba(0,0,0,.5);
-          box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: rgba(0,0,0,.5);
+            box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
         }
 
         /* selector with long, comma separated property values */
@@ -191,20 +191,20 @@
     <pre><code class="language-css">
         /* Bad CSS */
         .selector, .selector-secondary, .selector[type=text] {
-          padding:15px;
-          margin:0px 0px 15px;
-          background-color:rgba(0, 0, 0, 0.5);
-          box-shadow:0px 1px 2px #CCC,inset 0 1px 0 #FFFFFF
+            padding:15px;
+            margin:0px 0px 15px;
+            background-color:rgba(0, 0, 0, 0.5);
+            box-shadow:0px 1px 2px #CCC,inset 0 1px 0 #FFFFFF
         }
 
         /* Good CSS */
         .selector,
         .selector-secondary,
         .selector[type="text"] {
-          padding: 15px;
-          margin-bottom: 15px;
-          background-color: rgba(0,0,0,.5);
-          box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: rgba(0,0,0,.5);
+            box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
         }
 
         /* selector with long, comma separated property values */
@@ -240,33 +240,33 @@
     <div class="col">
     <pre><code class="language-css">
         .declaration-order {
-          /* Positioning */
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          z-index: 100;
+            /* Positioning */
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
 
-          /* Box-model */
-          display: block;
-          float: right;
-          width: 100px;
-          height: 100px;
+            /* Box-model */
+            display: block;
+            float: right;
+            width: 100px;
+            height: 100px;
 
-          /* Typography */
-          font: normal 13px "Helvetica Neue", sans-serif;
-          line-height: 1.5;
-          color: #333;
-          text-align: center;
+            /* Typography */
+            font: normal 13px "Helvetica Neue", sans-serif;
+            line-height: 1.5;
+            color: #333;
+            text-align: center;
 
-          /* Visual */
-          background-color: #f5f5f5;
-          border: 1px solid #e5e5e5;
-          border-radius: 3px;
+            /* Visual */
+            background-color: #f5f5f5;
+            border: 1px solid #e5e5e5;
+            border-radius: 3px;
 
-          /* Misc */
-          opacity: 1;
+            /* Misc */
+            opacity: 1;
         }
     </code></pre>
     </div>
@@ -313,9 +313,9 @@
         .element-selected { ... }
 
         @media (min-width: 480px) {
-          .element { ...}
-          .element-avatar { ... }
-          .element-selected { ... }
+            .element { ...}
+            .element-avatar { ... }
+            .element-selected { ... }
         }
     </code></pre>
     </div>
@@ -334,8 +334,8 @@
     <pre><code class="language-css">
         /* Prefixed properties */
         .selector {
-          -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-                  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+            -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                    box-shadow: 0 1px 2px rgba(0,0,0,.15);
         }
 
     </code></pre>
@@ -361,10 +361,10 @@
 
         /* Multiple declarations, one per line */
         .sprite {
-          display: inline-block;
-          width: 16px;
-          height: 15px;
-          background-image: url(../img/sprite.png);
+            display: inline-block;
+            width: 16px;
+            height: 15px;
+            background-image: url(../img/sprite.png);
         }
         .icon           { background-position: 0 0; }
         .icon-home      { background-position: 0 -20px; }
@@ -397,19 +397,19 @@
     <pre><code class="language-css">
         /* Bad example */
         .element {
-          margin: 0 0 10px;
-          background: red;
-          background: url("image.jpg");
-          border-radius: 3px 3px 0 0;
+            margin: 0 0 10px;
+            background: red;
+            background: url("image.jpg");
+            border-radius: 3px 3px 0 0;
         }
 
         /* Good example */
         .element {
-          margin-bottom: 10px;
-          background-color: red;
-          background-image: url("image.jpg");
-          border-top-left-radius: 3px;
-          border-top-right-radius: 3px;
+            margin-bottom: 10px;
+            background-color: red;
+            background-image: url("image.jpg");
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
     }
     </code></pre>
     </div>
@@ -434,8 +434,8 @@
 
       /* With nesting */
       .table > thead > tr {
-        > th { … }
-        > td { … }
+          > th { … }
+          > td { … }
       }
     </code></pre>
     </div>
@@ -457,16 +457,16 @@
     <pre><code class="language-css">
       /* Bad example */
       .element {
-        margin: 10px 0 @variable*2 10px;
-        @extend .other-rule;
-        @include clearfix();
+          margin: 10px 0 @variable*2 10px;
+          @extend .other-rule;
+          @include clearfix();
       }
 
       /* Good example */
       .element {
-        @extend .other-rule;
-        @include clearfix();
-        margin: 10px 0 (@variable * 2) 10px;
+          @extend .other-rule;
+          @include clearfix();
+          margin: 10px 0 (@variable * 2) 10px;
       }
     </code></pre>
     </div>
@@ -490,13 +490,13 @@
       /* Bad example */
       /* Modal header */
       .modal-header {
-        ...
+          ...
       }
 
       /* Good example */
       /* Wrapping element for .modal-title and .modal-close */
       .modal-header {
-        ...
+          ...
       }
     </code></pre>
     </div>
@@ -617,7 +617,7 @@
         <h3>Editor preferences</h3>
         <p>Set your editor to the following settings to avoid common code inconsistencies and dirty diffs:</p>
         <ul>
-            <li>Use soft-tabs set to two spaces. Never mix tabs and spaces.</li>
+            <li>Use soft-tabs set to four spaces. Never mix tabs and spaces.</li>
             <li>Trim trailing white space on save.</li>
             <li>Set encoding to UTF-8.</li>
             <li>Add new line at end of files.</li>
