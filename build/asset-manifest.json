@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/studyTimeTV/static/css/main.09c66a52.css",
+    "main.js": "/studyTimeTV/static/js/main.ffb88ee5.js",
+    "static/js/422.8acfdd73.chunk.js": "/studyTimeTV/static/js/422.8acfdd73.chunk.js",
+    "index.html": "/studyTimeTV/index.html",
+    "main.09c66a52.css.map": "/studyTimeTV/static/css/main.09c66a52.css.map",
+    "main.ffb88ee5.js.map": "/studyTimeTV/static/js/main.ffb88ee5.js.map",
+    "422.8acfdd73.chunk.js.map": "/studyTimeTV/static/js/422.8acfdd73.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09c66a52.css",
+    "static/js/main.ffb88ee5.js"
+  ]
+}

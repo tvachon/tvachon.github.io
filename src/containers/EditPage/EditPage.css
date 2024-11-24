@@ -1,0 +1,66 @@
+.EditPage {
+    margin: 1em;
+    border: 1px solid #444444;
+}
+
+.Dropdown {
+    padding: 1em 1em .5em 1em;
+    background-color: #444444;
+}
+
+.IntervalCount button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #fff;
+}
+
+.downArrow {
+    font-size: 18px;
+    margin-left: 3px;
+}
+
+.downArrow:active {
+    color: #bbb;
+}
+
+.Inputs {
+    display: flex;
+    margin-bottom: .5em;
+}
+
+.select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    color: #757575;
+}
+
+.NameInputs, .NumberInputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputChangeButton {
+    margin: .5em;
+    color: white;
+    padding: 16px 18px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+}
+
+.save {
+    background-color: #4192DC;
+}
+
+.save:active {
+    background-color: #0b7dda;
+}
+
+.cancel {
+    background-color: #78a1c7;
+}
+
+.cancel:active {
+    background-color: #6498c9;
+}

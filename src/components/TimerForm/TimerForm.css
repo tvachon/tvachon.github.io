@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono&display=swap');
+
+body {
+    background-color: #e5e5e5;
+}
+
+.TimerForm {
+    background-color: #202020;
+    color: #fff;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    padding-top: 10px;
+}
+
+.form div {
+    margin: 0 8px;
+}
+
+.form p {
+    margin: .3em 0em;
+}
+
+.inputIntervals {
+    width: 12%;
+}
+
+.validity {
+    display: inline-block;
+    width: 120px;
+    font-size: small;
+    padding: 0;
+    color: #EF476F;
+}
+
+input {
+    outline: none;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+input[type="number"] {
+    padding-bottom: 15px;
+    width: 50%;
+    text-align: center;
+}
+
+/* input[type="time"] {
+    background-color: red;
+} */
+
+/*---CALCULATION DISPLAY---*/
+
+.CalculationDisplay {
+    display: flex;
+    justify-content: center;
+}
+
+.CalculationDisplay div {
+    margin: 0em .5em 1.5em .5em;
+}
+
+.CalculationDisplay h2 {
+    font-size: 1.1em;
+    font-weight: 400;
+    margin: .5em .5em 0em .5em;
+}
+
+.CalculationDisplay h3 {
+    font-size: 1.8em;
+    margin: 0;
+    font-family: 'Azeret Mono', monospace;
+}
+
+/*----------------------------MEDIA QUERIES----------------------------*/
+
+@media screen and (max-width: 515px) {
+    .CalculationDisplay h2 {
+        font-size: 16px;
+    }
+
+    .CalculationDisplay h3 {
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 499px) {
+    .inputIntervals input {
+        padding: 5px 10px;
+    }
+}

@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono&display=swap');
+
+body {
+    background-color: #3C3C3C;
+}
+
+.IntervalTimer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+/*----BUTTON STYLES----*/
+
+.TimerControls {
+    display: flex;
+    justify-content:  center;
+}
+
+.controlButton {
+    margin-left: 5em;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    background-color:#4192DC;
+    color: #fff;
+}
+
+.btn, .btn2 {
+    background-color: #4192DC;
+    border: none;
+    outline: none;
+}
+
+.btn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 20px 0 0 20px;
+}
+
+.btn2 {
+    padding: 15.5px 15px;
+    border-left: 1px solid #0d8bf2;
+    border-radius: 0 20px 20px 0;
+    margin-right: 5em;
+}
+
+.downArrow {
+    color: #fff;
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 130px;
+    z-index: 1;
+}
+
+.dropdown-content button {
+    color: black;
+    padding: 12px 16px;
+    border: none;
+    width: 100%;
+    display: block;
+}
+  
+.dropdown-content button:hover {
+    background-color: #ddd
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.btn:active {
+    background-color: #0b7dda;
+}
+
+.btn2:hover, .dropdown:hover .btn2 {
+    background-color: #0b7dda;
+}
+
+.controlButton:active {
+    background-color: #0b7dda;
+}
+
+/*----TIME DISPLAY STYLES----*/
+
+.number {
+    font-family: 'Azeret Mono', monospace;
+}
+
+.totalTimeDisplay .countdown {
+    margin: 10px;
+    border-radius: 50px;
+    font-family: monospace;
+    font-size: 30px;
+}
+
+.countdown {
+    font-size: 20px;
+}
+
+.CountdownTimer {
+    align-self: center;
+    margin: .5em 0 2em 0;
+    font-size: larger;
+}
+
+.goodZone {
+    color: #6FABE3;
+}
+
+.cautionZone {
+    color: #f5c436;
+}
+
+.redZone {
+    color: #a12020;
+}
+
+.TimeInformation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2em 1.5em 1.5em 1.5em;
+}
+
+.TimeInformation p {
+    margin: 0;
+}
+
+.TotalTimeCountdownTimer {
+    padding: 49px 85px;
+}
+
+.timeInfoTitle {
+    font-weight: 400;
+}
+
+.clock {
+    margin: .1em;
+}
+
+.CoffeeSection p {
+    font-size: 15px;
+    margin: 0;
+}
+
+/*----------------------------MEDIA QUERIES----------------------------*/
+
+@media screen and (max-width: 515px) {
+    .TimeInformation p {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .TimeInformation h1 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .btn {
+        margin-right: 0;
+    }
+
+    .btn2 {
+        padding: 16.5px 16px;
+        margin-left: 0;
+    }
+}
